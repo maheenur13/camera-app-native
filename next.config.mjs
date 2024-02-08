@@ -1,4 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+const { withExpo } = require("@expo/next-adapter");
 
-export default nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = withExpo({
+  reactStrictMode: true,
+  swcMinify: true,
+  transpilePackages: [
+    "react-native",
+    "expo",
+    // Add more React Native / Expo packages here...
+  ],
+});
+
+module.exports = nextConfig;
